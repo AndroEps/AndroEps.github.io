@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grig Design - Дизайн интерьера, архитектура, строительство</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: #333;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 300;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: #666;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 100;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #333;
+            color: white;
+            text-decoration: none;
+            font-weight: 300;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+
+        .cta-button:hover {
+            background: #555;
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 100;
+            text-align: center;
+            margin-bottom: 60px;
+            letter-spacing: 2px;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .service-card {
+            text-align: center;
+            padding: 40px 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 30px;
+            background: #f5f5f5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* About */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        /* Contact Form */
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-tabs {
+            display: flex;
+            margin-bottom: 40px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 15px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .tab-button.active {
+            background: #333;
+            color: white;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 300;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #333;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-weight: 300;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            line-height: 1.6;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Hidden sections */
+        .form-section {
+            display: none;
+        }
+
+        .form-section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">GRIG DESIGN</div>
+            <ul class="nav-links">
+                <li><a onclick="scrollToSection('home')">Главная</a></li>
+                <li><a onclick="scrollToSection('services')">Услуги</a></li>
+                <li><a onclick="scrollToSection('about')">О нас</a></li>
+                <li><a onclick="scrollToSection('contact')">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>GRIG DESIGN</h1>
+            <p>Комплексные решения в сфере дизайна интерьера, архитектуры и строительства. От концепции до реализации под ключ.</p>
+            <button class="cta-button" onclick="scrollToSection('contact')">Связаться с нами</button>
+        </div>
+    </section>
+
+    <section id="services" class="container">
+        <h2 class="section-title">Наши услуги</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🏠</div>
+                <h3>Дизайн интерьера</h3>
+                <p>Создаем уникальные интерьеры жилых и коммерческих помещений с учетом ваших потребностей и стиля жизни</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📐</div>
+                <h3>Архитектурные проекты</h3>
+                <p>Разрабатываем проекты частных домов и коттеджей от эскиза до рабочих чертежей</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔨</div>
+                <h3>Строительство</h3>
+                <p>Полный цикл строительных работ собственными силами и проверенными подрядчиками</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🛋️</div>
+                <h3>Комплектация</h3>
+                <p>Подбор и поставка мебели, декора и материалов, включая эксклюзивные элементы из-за рубежа</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" style="background: #f9f9f9;">
+        <div class="container">
+            <h2 class="section-title">О студии</h2>
+            
+            <!-- Founder Section -->
+            <div class="founder-section">
+                <div class="founder-content">
+                    <div class="founder-photo">
+                        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAGAAUADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUWEHInGBEzKRobHBCNHw8eEUFSNCUmKCkkNykrLiFQmIBVJzcqKyY3ODk6Px0+EQNhEhM0OTNSEWUlJSWmNVQwZ+X6X6f+Tn/EYzxOmQfPfbTWVEJ1PBxaStdWnS2l/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwYFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUWEHInGBEzKRobHBCNHw8eEUFSNCUmKCkkNykrLiFQmAAlJBxQZTU5VwYzdRJUKxo2Pzw+EggTUqJzT0YhIGOUZRJkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsP4+fl6usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/aAAwDAQACEQMRAD8A9/ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoorD8WeKbDwzpcl/qlytvbp0J5dj6KO5ohCU3yxV2OWiiiuS8VeMdP8MWZfULpYcj5IhmSY+yKOTWlWtCjHmlojqKTTlHV7HJ+NvaWjTLpdT8jk9Xt3OQPP+/gRYvJ/p5PgkQNhIwmOXPjTPruwvR5m8s3gB8P3DxFPsOVVhDuTxVyP4yb4oSOfZIV7KAO5ORDwmDxBl8Dxzp9XGMO2/j9Ij+2o9CqAiPDa9tI8HYRR6O2PPeHXJnNyaLfZRRRWTJVOWQKkj7TFJjHxIH91NjHoP1qq9OQNW7nxLCZ5YrJZ5pYSyvJHGWRWU4YEjg4PJGD64qvaeKLB/Cz1zUHOZCVKx7PmLjlBnsPl6+9eQ6rq11q+oSXt7K8s8h5JOAo7ADoAOwrF4qFLSRjUq8q2rC4jzA/EQ2iRmGW3WIgkCNGKjE5HYGEEAAz/2oGF3wgN+9ZBvEnhM7cfSxN9jm3C8Zj2+Ue9b3pGfm//c3f0rfP7jJMwT5vxjWYlzNKe4EcT56+7wX/AGPV9vqPG6A8HQtHuCsaSK9LGcKdQ68Kcj71zcXHh6h1XVJfEZeOKw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" alt="Григорян Эрик Размикович" style="width: 300px; height: 400px; object-fit: cover; border-radius: 10px;">
+                    </div>
+                    <div class="founder-info">
+                        <h3>Григорян Эрик Размикович</h3>
+                        <p class="founder-title">Основатель и главный архитектор</p>
+                        <div class="founder-details">
+                            <p><strong>Возраст:</strong> 25 лет</p>
+                            <p><strong>Образование:</strong> Архитектор, дизайнер</p>
+                            <p><strong>Опыт работы:</strong> Более 5 лет</p>
+                            <p><strong>Реализованные проекты:</strong> Более 20 проектов под личным руководством</p>
+                        </div>
+                        <p>В моем портфолио множество коммерческих объектов в г. Краснодар и других городах. Каждый проект — это уникальное решение, созданное с учетом потребностей клиента и особенностей пространства.</p>
+                    </div>
+                </div>
+                
+                <div class="studio-logo">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABWgAAAFeCAYAAAA+jUiKAAAACXBIWXMAAAsTAAALEwEAmpwYAAAKT2lDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjanVNnVFPpFj333vRCS4iAlEtvUhUIIFJCi4AUkSYqIQkQSoghodkVUcERRUUEG8igiAOOjoCMFVEsDIoK2AfkIaKOg6OIisr74Xuja9a89+bN/rXXPues852zzwfACAyWSDNRNYAMqUIeEeCDx8TG4eQuQIEKJHAAEAizZCFz/SMBAPh+PDwrIsAHvgABeNMLCADATZvAMByH/w/qQplcAYCEAcB0kThLCIAUAEB6jkKmAEBGAYCdmCZTAKAEAGDLY2LjAFAtAGAnf+bTAICd+Jl7AQBblCEVAaCRACATZYhEAGg7AKzPVopFAFgwABRmS8Q5ANgtADBJV2ZIALC3AMDOEAuyAAgMADBRiIUpAAR7AGDIIyN4AISZABRG8lc88SuuEOcqAAB4mbI8uSQ5RYFbCC1xB1dXLh4ozkkXKxQ2YQJhmkAuwnmZGTKBNA/g88wAAKCRFRHgg/P9eM4Ors7ONo62Dl8t6r8G/yJiYuP+5c+rcEAAAOF0ftH+LC+zGoA7BoBt/qIl7gRoXgugdfeLZrIPQLUAoOnaV/Nw+H48PEWhkLnZ2eXk5NhKxEJbYcpXff5nwl/AV/1s+X48/Pf14L7iJIEyXYFHBPjgwsz0TKUcz5IJhGLc5o9H/LcL//wd0yLESWK5WCoU41EScY5EmozzMqUiiUKSKcUl0v9k4t8s+wM+3zUAsGo+AXuRLahdYwP2SycQWHTA4vcAAPK7b8HUKAgDgGiD4c93/+8//UegJQCAZkmScQAAXkQkLlTKsz/HCAAARKCBKrBBG/TBGCzABhzBBdzBC/xgNoRCJMTCQhBCCmSAHHJgKayCQiiGzbAdKmAv1EAdNMBRaIaTcA4uwlW4Dj1wD/phCJ7BKLyBCQRByAgTYSHaiAFiilgjjggXmYX4IcFIBBKLJCDJiBRRIkuRNUgxUopUIFVIHfI9cgI5h1xGupE7yAAygvyGvEcxlIGyUT3UDLVDuag3GoRGogvQZHQxmo8WoJvQcrQaPYw2oefQq2gP2o8+Q8cwwOgYBzPEbDAuxsNCsTgsCZNjy7EirAyrxhqwVqwDu4n1Y8+xdwQSgUXACTYEd0IgYR5BSFhMWE7YSKggHCQ0EdoJNwkDhFHCJyKTqEu0JroR+cQYYjIxh1hILCPWEo8TLxB7iEPENyQSiUMyJ7mQAkmxpFTSEtJG0m5SI+ksqZs0SBojk8naZGuyBzmULCAryIXkneTD5DPkG+Qh8lsKnWJAcaT4U+IoUspqShnlEOU05QZlmDJBVaOaUt2ooVQRNY9aQq2htlKvUYeoEzR1mjnNgxZJS6WtopXTGmgXaPdpr+h0uhHdlR5Ol9BX0svpR+iX6AP0dwwNhhWDx4hnKBmbGAcYZxl3GK+YTKYZ04sZx1QwNzHrmOeZD5lvVVgqtip8FZHKCpVKlSaVGyovVKmqpqreqgtV81XLVI+pXlN9rkZVM1PjqQnUlqtVqp1Q61MbU2epO6iHqmeob1Q/pH5Z/YkGWcNMw09DpFGgsV/jvMYgC2MZs3gsIWsNq4Z1gTXEJrHN2Xx2KruY/R27iz2qqaE5QzNKM1ezUvOUZj8H45hx+Jx0TgnnKKeX836K3hTvKeIpG6Y0TLkxZVxrqpaXllirSKtRq0frvTau7aedpr1Fu1n7gQ5Bx0onXCdHZ4/OBZ3nU9lT3acKpxZNPTr1ri6qa6UbobtEd79up+6Ynr5egJ5Mb6feeb3n+hx9L/1U/W36p/VHDFgGswwkBtsMzhg8xTVxbzwdL8fb8VFDXcNAQ6VhlWGX4YSRudE8o9VGjUYPjGnGXOMk423GbcajJgYmISZLTepN7ppSTbmmKaY7TDtMx83MzaLN1pk1mz0x1zLnm+eb15vft2BaeFostqi2uGVJsuRaplnutrxuhVo5WaVYVVpds0atna0l1rutu6cRp7lOk06rntZnw7Dxtsm2qbcZsOXYBtuutm22fWFnYhdnt8Wuw+6TvZN9un2N/T0HDYfZDqsdWh1+c7RyFDpWOt6azpzuP33F9JbpL2dYzxDP2DPjthPLKcRpnVOb00dnF2e5c4PziIuJS4LLLpc+Lpsbxt3IveRKdPVxXeF60vWdm7Obwu2o26/uNu5p7ofcn8w0nymeWTNz0MPIQ+BR5dE/C5+VMGvfrH5PQ0+BZ7XnIy9jL5FXrdewt6V3qvdh7xc+9j5yn+M+4zw33jLeWV/MN8C3yLfLT8Nvnl+F30N/I/9k/3r/0QCngCUBZwOJgUGBWwL7+Hp8Ib+OPzrbZfay2e1BjKC5QRVBj4KtguXBrSFoyOyQrSH355jOkc5pDoVQfujW0Adh5mGLw34MJ4WHhVeGP45wiFga0TGXNXfR3ENz30T6RJZE3ptnMU85ry1KNSo+qi5qPNo3ujS6P8YuZlnM1VidWElsSxw5LiquNm5svt/87fOH4p3iC+N7F5gvyF1weaHOwvSFpxapLhIsOpZATIhOOJTwQRAqqBaMJfITdyWOCnnCHcJnIi/RNtGI2ENcKh5O8kgqTXqS7JG8NXkkxTOlLOW5hCepkLxMDUzdmzqeFpp2IG0yPTq9MYOSkZBxQqohTZO2Z+pn5mZ2y6xlhbL+xW6Lty8elQfJa7OQrAVZLQq2QqboVFoo1yoHsmdlV2a/zYnKOZarnivN7cyzytuQN5zvn//tEsIS4ZK2pYZLVy0dWOa9rGo5sjxxedsK4xUFK4ZWBqw8uIq2Km3VT6vtV5eufr0mek1rgV7ByoLBtQFr6wtVCuWFfevc1+1dT1gvWd+1YfqGnRs+FYmKrhTbF5cVf9go3HjlG4dvyr+Z3JS0qavEuWTPZtJm6ebeLZ5bDpaql+aXDm4N2dq0Dd9WtO319kXbL5fNKNu7g7ZDuaO/PLi8ZafJzs07P1SkVPRU+lQ27tLdtWHX+G7R7ht7vPY07NXbW7z3/T7JvttVAVVN1WnVBdXFvt/sG2t5dXsJ5xyOeWqOzFMUO9oXdGzTr+DtHD+LuM2fD6P6b4DlgrtZPSP5e1qWqZJcHh3c0Nn9WqU+fKTQcZMvn/r3lL7ff6jJNtVfp/U6UJvMJ5Vd1Psi+JcF9rf1X1zOOZYutj3o/YfE8b5/4f+f8c+v77L8b/+Jzf9K9tKnfMQ4R9j5fD5/vJBJSc2/iT9J2/4b6xnbOCWrfv+Hn7x+HdnV+17b+JtV05d0fQQvz+vj+7vvr/4e+vDzV+wVK+vvKbTdNL9KW/rPZvC4fQ7rEPcjm+yNe4G51d+nIzDOmBZ0+rU2WA4fWFi/ZB9CG/aqw9GK5dK8nKqr+/NN+JrYvtHPa+rz+y7+6d0dK8bN+bT5/36qITlMIFqPPr8EuvKq+1VZB+wJXkG2/O/mq9rQQOj2Qvxv8Bz/+qwMOm9KMeWxmdP9m/EjGGhbz6BuLO77
+
+    <section id="contact" class="container">
+        <h2 class="section-title">Связаться с нами</h2>
+        <div class="form-container">
+            <div class="form-tabs">
+                <button class="tab-button active" onclick="switchTab('client')">Заказать проект</button>
+                <button class="tab-button" onclick="switchTab('employee')">Присоединиться к команде</button>
+            </div>
+
+            <div id="client-form" class="form-section active">
+                <form onsubmit="submitForm(event, 'client')">
+                    <div class="form-group">
+                        <label for="client-name">Имя *</label>
+                        <input type="text" id="client-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="client-phone">Телефон *</label>
+                        <input type="tel" id="client-phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="client-email">Email</label>
+                        <input type="email" id="client-email">
+                    </div>
+                    <div class="form-group">
+                        <label for="service-type">Тип услуги</label>
+                        <select id="service-type">
+                            <option value="">Выберите услугу</option>
+                            <option value="interior">Дизайн интерьера</option>
+                            <option value="architecture">Архитектурный проект</option>
+                            <option value="construction">Строительство</option>
+                            <option value="complex">Комплексный проект</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="project-details">Описание проекта</label>
+                        <textarea id="project-details" placeholder="Расскажите о своем проекте, пожеланиях, бюджете..."></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">Отправить заявку</button>
+                </form>
+            </div>
+
+            <div id="employee-form" class="form-section">
+                <form onsubmit="submitForm(event, 'employee')">
+                    <div class="form-group">
+                        <label for="emp-name">Имя *</label>
+                        <input type="text" id="emp-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="emp-phone">Телефон *</label>
+                        <input type="tel" id="emp-phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="emp-email">Email *</label>
+                        <input type="email" id="emp-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="position">Желаемая позиция</label>
+                        <select id="position">
+                            <option value="">Выберите направление</option>
+                            <option value="designer">Дизайнер интерьера</option>
+                            <option value="architect">Архитектор</option>
+                            <option value="manager">Менеджер проектов</option>
+                            <option value="constructor">Строитель/прораб</option>
+                            <option value="other">Другое</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="experience">Опыт работы и навыки</label>
+                        <textarea id="experience" placeholder="Расскажите о своем опыте, образовании, ключевых навыках..."></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">Отправить резюме</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p>Телефон: +7 (988) 342-51-07</p>
+                    <p>Email: grigoryanerik@bk.ru</p>
+                    <p>Адрес: г. Краснодар</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Услуги</h3>
+                    <p>Дизайн интерьера</p>
+                    <p>Архитектурное проектирование</p>
+                    <p>Строительство под ключ</p>
+                    <p>Комплектация объектов</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Время работы</h3>
+                    <p>Пн-Пт: 9:00 - 18:00</p>
+                    <p>Сб: 10:00 - 16:00</p>
+                    <p>Вс: по договоренности</p>
+                </div>
+            </div>
+            <p style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #555; color: #999;">
+                © 2025 Grig Design. Все права защищены.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            const headerOffset = 80;
+            const elementPosition = element.offsetTop;
+            const offsetPosition = elementPosition - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+
+        function switchTab(tabType) {
+            // Remove active class from all tabs and forms
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.form-section').forEach(section => section.classList.remove('active'));
+
+            // Add active class to clicked tab and corresponding form
+            event.target.classList.add('active');
+            document.getElementById(tabType + '-form').classList.add('active');
+        }
+
+        function submitForm(event, formType) {
+            event.preventDefault();
+            
+            if (formType === 'client') {
+                alert('Спасибо за заявку! Мы свяжемся с вами в ближайшее время для обсуждения вашего проекта.');
+            } else {
+                alert('Спасибо за ваше резюме! Мы рассмотрим вашу кандидатуру и свяжемся с вами.');
+            }
+            
+            event.target.reset();
+        }
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
